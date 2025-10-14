@@ -11,7 +11,6 @@ import { Progress } from "@/components/ui/progress";
 import { Search, Plus, Upload } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-// Mock data - TODO: remove mock functionality
 const mockOccurrences = [
   { id: "001", tipo: "Incêndio", regiao: "Metropolitana", status: "Em Andamento" as const, equipe: "Equipe Alpha", data: "10/10/2025 14:30" },
   { id: "002", tipo: "Resgate", regiao: "Zona da Mata", status: "Concluído" as const, equipe: "Equipe Bravo", data: "08/10/2025 09:15" },

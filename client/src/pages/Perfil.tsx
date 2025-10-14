@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { Key, FileText, Download, Mail, Phone, Calendar, Hash } from "lucide-react";
 import profileImage from "@assets/stock_images/emergency_response_f_c0e34c76.jpg";
 
-// Mock data - TODO: remove mock functionality
 const userData = {
   nome: "Capitão João Silva",
   email: "admin@cbmpe.gov.br",

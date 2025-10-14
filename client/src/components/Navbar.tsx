@@ -1,16 +1,17 @@
 import { Link, useLocation } from "wouter";
-import { Flame, AlertTriangle, FileText, BarChart3, UserCircle, Search } from "lucide-react";
+import { Flame, AlertTriangle, FileText, BarChart3, UserCircle, LogOut } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 
 export function Navbar() {
   const [location] = useLocation();
+  const { logout } = useAuth();
 
   const navItems = [
     { path: "/", label: "S.O.S", icon: AlertTriangle },
     { path: "/relatorios", label: "Relatórios", icon: FileText },
     { path: "/graficos", label: "Gráficos", icon: BarChart3 },
-    { path: "/busca-visual", label: "Busca Visual", icon: Search },
     { path: "/perfil", label: "Perfil", icon: UserCircle },
   ];
 
@@ -46,6 +47,14 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
+          <Button 
+            variant="ghost" 
+            size="icon"
+            onClick={logout}
+            data-testid="button-logout"
+          >
+            <LogOut className="h-5 w-5" />
+          </Button>
         </div>
       </div>
     </nav>

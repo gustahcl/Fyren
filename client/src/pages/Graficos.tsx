@@ -3,7 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlertTriangle, CheckCircle2, Clock, TrendingUp } from "lucide-react";
 import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
-// Mock data - TODO: remove mock functionality
 const monthlyData = [
   { mes: "Jan", total: 45 },
   { mes: "Fev", total: 52 },

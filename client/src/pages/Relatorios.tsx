@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Download, FileText } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-// Mock data - TODO: remove mock functionality
 const mockReports = [
   { id: "001", data: "10/10/2025", tipo: "Incêndio", regiao: "Metropolitana", responsavel: "Cap. Silva" },
   { id: "002", data: "08/10/2025", tipo: "Resgate", regiao: "Zona da Mata", responsavel: "Ten. Santos" },
