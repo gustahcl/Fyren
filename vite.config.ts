@@ -32,6 +32,16 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
+    // Adiciona a configuração do proxy aqui
+    proxy: {
+      // Redireciona qualquer pedido que comece com '/api'
+      '/api': {
+        // Para o seu servidor backend que está a correr na porta 5000
+        target: 'http://127.0.0.1:5000',
+        // Muda a origem do pedido para o alvo (target)
+        changeOrigin: true,
+      },
+    },
     fs: {
       strict: true,
       deny: ["**/.*"],
