@@ -1,7 +1,6 @@
 import { type User, type InsertUser, users } from "@shared/schema";
 import { eq } from "drizzle-orm";
 import { db } from "./db";
-
 // A interface (contrato) que define como interagimos com os dados dos utilizadores.
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
