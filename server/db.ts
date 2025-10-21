@@ -1,3 +1,4 @@
+import 'dotenv/config'; // ALTERAÇÃO CRÍTICA: Carrega as variáveis do .env imediatamente.
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
 import * as schema from '@shared/schema';
