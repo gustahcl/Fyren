@@ -19,19 +19,4 @@ async function runMigrations() {
 
   console.log("A executar migrações...");
 
-  try {
-    // A função migrate procura por ficheiros na pasta 'migrations' (configurada no drizzle.config.ts)
-    await migrate(db, { migrationsFolder: './migrations' });
-    console.log("Migrações aplicadas com sucesso!");
-  } catch (error) {
-    console.error("Erro ao aplicar migrações:", error);
-    process.exit(1);
-  } finally {
-    // Fecha a ligação após a conclusão
-    await migrationClient.end();
-    console.log("Ligação de migração fechada.");
-    process.exit(0);
-  }
-}
-
 runMigrations();
