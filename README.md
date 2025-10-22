@@ -24,11 +24,31 @@ Dashboard Operacional – KPIs e gráficos de ocorrências por tipo, região e t
 
 📊 Arquitetura do Sistema (Web)
 
-Frontend (este repositório): Interface administrativa em TypeScript.
+Linguagem principal: 
 
-Backend: API central do CBMPE para autenticação, armazenamento e análise de dados.
+• TypeScript: usado tanto no front end quanto no back end para garantir mais segurança 
 
-Banco de Dados: MySQL
+Front-end
+
+• React: Usada como biblioteca principal 
+
+• Vite: A ferramenta de desenvolvimento e build do front-end
+
+• Tailwind CSS: Framework de estilização 
+
+Back-end:
+
+• Node.js: A fundação do back end
+
+• Express.js: O framework web que usamos para construir a API REST
+
+• Drizzle ORM: A ferramenta que faz a "ponte" entre o código e a base de dados
+
+Base de dados: 
+
+• PostgreSQL: O sistema de gestão de base de dados relacional 
+
+• Neon: A plataforma serverless onde a base de dados está hospedada
 
 👨🏽‍💻 Colaboradores 
 
@@ -36,7 +56,7 @@ Banco de Dados: MySQL
 
 • Gustavo Henrique - Desenvolvedor Full Stack 
 
-• Larissa Monteiro - Desenvolvedora Front end 
+• Larissa Monteiro - Documentação
 
 • Eloisa De Andrade - UX/Ui Design 
 
