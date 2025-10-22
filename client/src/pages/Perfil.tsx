@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Key, FileText, Download, Mail, Phone, Calendar, Hash } from "lucide-react";
-import profileImage from "@dist/public/assets/emergency_response_f_c0e34c76-Bv9U0C8a.jpg";
+import profileImage from "@src/assets/emergency_response_f_c0e34c76-Bv9U0C8a.jpg";
 
 const userData = {
   nome: "Capitão João Silva",
