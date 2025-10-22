@@ -19,10 +19,10 @@ export function log(message: string, source = "express") {
   console.log(`${formattedTime} [${source}] ${message}`);
 }
 
-export async function setupVite(app: Express, server: Server) {
+export async function setupVite(app: Express) {
   const serverOptions = {
     middlewareMode: true,
-    hmr: { server },
+    hmr: { server: undefined }, // ← remova a referência ao server
     allowedHosts: true as const,
   };
 
@@ -46,12 +46,18 @@ export async function setupVite(app: Express, server: Server) {
 
     try {
       const clientTemplate = path.resolve(
-        import.meta.dirname,
-        "..",
+        process.cwd(),
         "client",
         "index.html",
       );
 
+       console.log("Tentando carregar:", clientTemplate);
+
+      // Verifica se o arquivo existe
+      if (!fs.existsSync(clientTemplate)) {
+        console.error("Arquivo nao encontrado:", clientTemplate);
+        return res.status(404).send("index.html nao encontrado");
+      }
       // always reload the index.html file from disk incase it changes
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
       template = template.replace(
