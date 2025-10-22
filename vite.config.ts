@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import capitaoImg from '@assets/capitao.png';
 
 export default defineConfig({
   plugins: [
@@ -21,7 +22,6 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
-    // ⚠️ REMOVA toda a seção proxy - não é mais necessária
     fs: {
       strict: true,
       deny: ["**/.*"],

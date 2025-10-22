@@ -1,22 +1,35 @@
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { migrate } from 'drizzle-orm/node-postgres/migrator';
 import { Pool } from 'pg';
-import 'dotenv/config'; // Garante que as variáveis de ambiente sejam carregadas
+import 'dotenv/config';
 
 async function runMigrations() {
   if (!process.env.DATABASE_URL) {
-    throw new Error("A variável de ambiente DATABASE_URL não foi definida.");
+    throw new Error("A variavel de ambiente DATABASE_URL nao foi definida.");
   }
   
-  console.log("A iniciar a ligação à base de dados para migração...");
+  console.log("A iniciar a ligacao a base de dados para migracao...");
 
-  // Cria uma ligação direta para a migração, sem usar o pool da aplicação
   const migrationClient = new Pool({
     connectionString: process.env.DATABASE_URL,
   });
 
   const db = drizzle(migrationClient);
 
-  console.log("A executar migrações...");
+  console.log("A executar migracoes...");
 
-runMigrations();
+  try {
+    await migrate(db, { migrationsFolder: './migrations' });
+    console.log("Migracoes aplicadas com sucesso!");
+  } catch (error) {
+    console.error("Erro ao aplicar migracoes:", error);
+    process.exit(1);
+  } finally {
+    await migrationClient.end();
+    console.log("Ligacao de migracao fechada.");
+    process.exit(0);
+  }
+}
+
+console.log("A executar migracoes...");
+runMigrations().catch(console.error);
