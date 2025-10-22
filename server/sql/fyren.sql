@@ -89,9 +89,9 @@ INSERT INTO "roles" ("name") VALUES ('admin'), ('chefe'), ('analista') ON CONFLI
 -- Insere os utilizadores de teste com a palavra-passe 'admin122' já criptografada com bcrypt
 -- A password hash é para 'admin123'
 INSERT INTO "users" ("name", "email", "password", "rank", "role_id") VALUES
-('Administrador do Sistema', 'admin@cbmpe.gov.br', '$2a$10$w5.9e9gV/J8e.g4h.i2j.k/l.m1n.o2p.q3r.s4t.u5v.w6x.GSp.v0we', 'Major', (SELECT id from roles WHERE name = 'admin')),
-('Chefe de Operações', 'chefe@cbmpe.gov.br', '$2a$10$w5.9e9gV/J8e.g4h.i2j.k/l.m1n.o2p.q3r.s4t.u5v.w6x.GSp.v0we', 'Capitão', (SELECT id from roles WHERE name = 'chefe')),
-('Analista de Dados', 'analista@cbmpe.gov.br', '$2a$10$w5.9e9gV/J8e.g4h.i2j.k/l.m1n.o2p.q3r.s4t.u5v.w6x.GSp.v0we', 'Tenente', (SELECT id from roles WHERE name = 'analista'))
+('Administrador do Sistema', 'admin@cbmpe.gov.br', 'admin123', 'Major', (SELECT id from roles WHERE name = 'admin')),
+('Chefe de Operações', 'chefe@cbmpe.gov.br', 'chefe123', 'Capitão', (SELECT id from roles WHERE name = 'chefe')),
+('Analista de Dados', 'analista@cbmpe.gov.br', 'analista123', 'Tenente', (SELECT id from roles WHERE name = 'analista'))
 ON CONFLICT (email) DO NOTHING;
 
 -- Insere algumas ocorrências de exemplo
@@ -100,3 +100,7 @@ INSERT INTO "occurrences" ("type", "region", "status", "description", "team", "r
 ('Resgate', 'Zona da Mata', 'Concluído', 'Resgate de animal preso em árvore.', 'Equipa Bravo', (SELECT id from users WHERE email = 'chefe@cbmpe.gov.br')),
 ('Vazamento', 'Agreste', 'Em Andamento', 'Vazamento de gás em área industrial.', 'Equipa Charlie', (SELECT id from users WHERE email = 'chefe@cbmpe.gov.br'))
 ON CONFLICT (id) DO NOTHING;
+
+UPDATE users
+SET password = 'admin123'
+WHERE email = 'admin@cbmpe.gov.br';

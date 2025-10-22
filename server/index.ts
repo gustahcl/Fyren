@@ -50,7 +50,7 @@ app.use((req, res, next) => {
     });
 
   } catch (error) {
-    console.error("❌ Erro ao iniciar servidor:", error);
+    console.error("Erro ao iniciar servidor:", error);
     process.exit(1);
   }
 })();

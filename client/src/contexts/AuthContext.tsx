@@ -40,22 +40,32 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   // Função de login
   const login = async (email: string, password: string) => {
-    try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        setUser(data.user);
-        return true;
-      }
-      return false;
-    } catch (error) {
-      console.error("Falha no login:", error);
-      return false;
-    }
+    setIsLoading(true); // Define o estado de carregamento
+
+    // Simula uma pequena espera de rede
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    // Simulação de login baseada nos dados de teste
+    if (email === "admin@cbmpe.gov.br" && password === "admin123") {
+      
+      // Dados de usuário "mockados" (falsos) baseados no seu fyren.sql
+      // O tipo 'User' vem de '@shared/schema'
+ const mockUser: User = {
+    id: 1,
+    name: "Administrador do Sistema",
+    email: "admin@cbmpe.gov.br",
+    password: "admin123",
+    createdAt: new Date(),
+    roleId: 1,
+    rank: "Administrador"
+};
+      setUser(mockUser as User);
+      setIsLoading(false);
+      return true; // Sucesso
+    }  
+    // Se o email/senha estiverem errados
+    setIsLoading(false);
+    return false; // Falha
   };
 
   // Função de logout
