@@ -4,6 +4,7 @@ import { setupVite, serveStatic, log } from "./vite";
 import { db } from "./db"
 import "dotenv/config";
 import path from "path";
+import 'dotenv/config';
 
 console.log("Iniciando servidor...");
 
